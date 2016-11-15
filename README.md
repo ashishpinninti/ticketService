@@ -34,12 +34,15 @@ Integration tests  use independent test configuration to run integration tests s
 
 ## Interacting with application
 ### Find the number of seats available within the venue    
+curl -i -X GET http://localhost:8080/ticketService/v1/seatsAvailable
 
-    curl -i -X GET http://localhost:8080/ticketService/v1/seatsAvailable
-      50 
+50
+
 ### Find and hold the best available seats on behalf of a customer
-    curl -X POST http://localhost:8080/ticketService/v1/findAndHold/numSeats/3/customerEmail/ashish@dummy.com
-    {"id":20,"holdTime":1479226392277,"confirmationCode":null,"reservationTime":null,"seats":[{"id":3},{"id":1},{"id":2}]}
+curl -X POST http://localhost:8080/ticketService/v1/findAndHold/numSeats/3/customerEmail/ashish@dummy.com 
+
+{"id":20,"holdTime":1479226392277,"confirmationCode":null,"reservationTime":null,"seats":[{"id":3},{"id":1},{"id":2}]}
+
 ### Reserve and commit a specific group of held seats for a customer
 curl -X POST http://localhost:8080/ticketService/v1/reserve/seatHoldId/20/customerEmail/ashish@dummy.com
 
