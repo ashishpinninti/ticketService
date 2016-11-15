@@ -49,7 +49,8 @@ curl -X POST http://localhost:8080/ticketService/v1/reserve/seatHoldId/22/custom
 7cbab576-e04a-4976-8788-199489588a4f
 
 ####If the SeatHoldId is not valid:
-curl -X POST http://localhost:8080/ticketService/v1/reserve/seatHoldId/20/customerEmail/ashish@dummy.com
+curl -X POST http://localhost:8080/ticketService/v1/reserve/seatHoldId/24/customerEmail/ashish@dummy.com
+
   {
     "timestamp": 1479228013323,
     "status": 400,
@@ -59,3 +60,14 @@ curl -X POST http://localhost:8080/ticketService/v1/reserve/seatHoldId/20/custom
     "path": "/ticketService/v1/reserve/seatHoldId/20/customerEmail/ashish@dummy.com"
   }
 
+####If the Customer is not valid:
+curl -X POST http://localhost:8080/ticketService/v1/reserve/seatHoldId/23/customerEmail/sia@dummy.com
+
+{
+  "timestamp": 1479229231838,
+  "status": 400,
+  "error": "Bad Request",
+  "exception": "com.apinninti.ticketService.exception.CustomerNotValidException",
+  "message": "Customer is not valid, may be he/she doesn't hold this Seat Hold!",
+  "path": "/ticketService/v1/reserve/seatHoldId/24/customerEmail/sia@dummy.com"
+}
