@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -37,6 +38,7 @@ public class SeatHold implements Serializable {
 	private Integer id;
 
 	@Column(name = "HOLD_TIME")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm a z")
 	private Date holdTime;
 
 	@ManyToOne
@@ -45,6 +47,7 @@ public class SeatHold implements Serializable {
 	private Customer customer;
 
 	@Column(name = "CONFIRMATION_CODE")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm a z")
 	private String confirmationCode;
 
 	@Column(name = "RESERVATION_TIME")
