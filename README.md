@@ -44,6 +44,10 @@ curl -X POST http://localhost:8080/ticketService/v1/findAndHold/numSeats/3/custo
 {"id":20,"holdTime":1479226392277,"confirmationCode":null,"reservationTime":null,"seats":[{"id":3},{"id":1},{"id":2}]}
 
 ### Reserve and commit a specific group of held seats for a customer
+Successful reservation returns confirmation code:
+7cbab576-e04a-4976-8788-199489588a4f
+
+If the SeatHoldId is not valid:
 curl -X POST http://localhost:8080/ticketService/v1/reserve/seatHoldId/20/customerEmail/ashish@dummy.com
 
   {
