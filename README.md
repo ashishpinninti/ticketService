@@ -40,3 +40,14 @@ Integration tests  use independent test configuration to run integration tests s
 ### Find and hold the best available seats on behalf of a customer
     curl -X POST http://localhost:8080/ticketService/v1/findAndHold/numSeats/3/customerEmail/ashish@dummy.com
     {"id":20,"holdTime":1479226392277,"confirmationCode":null,"reservationTime":null,"seats":[{"id":3},{"id":1},{"id":2}]}
+### Reserve and commit a specific group of held seats for a customer
+curl -X POST http://localhost:8080/ticketService/v1/reserve/seatHoldId/20/customerEmail/ashish@dummy.com
+{
+  "timestamp": 1479228013323,
+  "status": 400,
+  "error": "Bad Request",
+  "exception": "com.apinninti.ticketService.exception.SeatHoldNotValidException",
+  "message": "Seat Hold is not valid, may be it is expired!",
+  "path": "/ticketService/v1/reserve/seatHoldId/20/customerEmail/ashish@dummy.com"
+}
+
